@@ -88,4 +88,15 @@ class Piano:
         self.position = position
         if (self.position > self.numOfKeys - 1): self.position = self.numOfKeys - 1
         if (self.position < 0): self.position = 0
-
+    def keyPress(self, key):
+        if key == curses.KEY_LEFT:
+            if(self.isActive()): self.left()
+        elif key == curses.KEY_RIGHT:
+            if(self.isActive()): self.right()
+        elif key == curses.KEY_SLEFT:
+            if(self.isActive()): self.sleft()
+        elif key == curses.KEY_SRIGHT:
+            if(self.isActive()): self.sright()
+        elif key == ord('\n'): #play tone over cursor
+            if(self.isActive()): return("playCurrent")
+        return("")
